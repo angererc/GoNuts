@@ -2,6 +2,7 @@ include $(GOROOT)/src/Make.inc
 
 TARG=gonuts
 GOFILES=\
-	numbers.go\
+	sorting/sort.go\
+	sorting/insertion_sort.go\
 
 include $(GOROOT)/src/Make.pkg
