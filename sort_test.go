@@ -48,4 +48,20 @@ func BenchmarkQuickSort(b *testing.B) {
 	QuickSort(data)
 }
 
+func TestSelectionSort(t *testing.T) {
+	data := generateRandomIntData(1000)
+	SelectionSort(data)
+	if ! sort.IsSorted(data) {
+		t.Error("Not sorted")
+	}
+}
+
+func BenchmarkSelectionSort(b *testing.B) {
+	b.StopTimer()
+	fmt.Printf("running %d\n", b.N)
+	data := generateRandomIntData(b.N)
+	b.StartTimer()
+	SelectionSort(data)
+}
+
 
