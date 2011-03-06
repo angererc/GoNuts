@@ -31,3 +31,21 @@ func BenchmarkInsertionSort(b *testing.B) {
 	b.StartTimer()
 	InsertionSort(data)
 }
+
+func TestQuickSort(t *testing.T) {
+	data := generateRandomIntData(1000)
+	QuickSort(data)
+	if ! sort.IsSorted(data) {
+		t.Error("Not sorted")
+	}
+}
+
+func BenchmarkQuickSort(b *testing.B) {
+	b.StopTimer()
+	fmt.Printf("running %d\n", b.N)
+	data := generateRandomIntData(b.N)
+	b.StartTimer()
+	QuickSort(data)
+}
+
+
